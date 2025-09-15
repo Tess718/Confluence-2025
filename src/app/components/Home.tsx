@@ -64,12 +64,13 @@ const Home = () => {
           </div>
         </div>
 
-        <div style={{ position: 'relative' }} className='-mt-10 max-sm:-mt-10 h-[350px] md:h-[600px]'>
+        <div style={{ height: '600px', position: 'relative' }} className='-mt-10 max-sm:-mt-10'>
           <CircularGallery 
             bend={bend} 
             textColor="#000" 
             borderRadius={0.05} 
             scrollEase={0.02} 
+            autoScrollSpeed={0.09}
           />
         </div>
       </div>
