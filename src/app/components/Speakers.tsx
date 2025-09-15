@@ -16,7 +16,7 @@ const Speakers = () => {
                 </div>
 
                 <h2 className='text-3xl font-semibold text-slate-700'>Coming Soon...</h2>
-                <p className='text-slate-500 py-5 text-lg'>We're announcing our incredible lineup of industry leaders, <br /> innovative startups, and ecosystem partners.</p>
+                <p className='text-slate-500 py-5 text-lg'>We&apos;re announcing our incredible lineup of industry leaders, <br /> innovative startups, and ecosystem partners.</p>
 
                 <button className='px-10 py-3 rounded-lg md:text-sm text-xs pointer font-normal bg-blue-800 text-white transition cursor-pointer'>Contact Us</button>
             </div>

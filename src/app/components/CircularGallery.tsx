@@ -5,11 +5,13 @@ import { useEffect, useRef } from 'react';
 
 type GL = Renderer['gl'];
 
-function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
-  let timeout: number;
-  return function (this: any, ...args: Parameters<T>) {
-    window.clearTimeout(timeout);
-    timeout = window.setTimeout(() => func.apply(this, args), wait);
+/** debounce with correct timeout typing */
+function debounce<T extends (...args: unknown[]) => void>(func: T, wait: number) {
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+
+  return function (this: unknown, ...args: Parameters<T>) {
+    if (timeout !== undefined) clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
   };
 }
 
@@ -17,11 +19,21 @@ function lerp(p1: number, p2: number, t: number): number {
   return p1 + (p2 - p1) * t;
 }
 
-function autoBind(instance: any): void {
+/**
+ * autoBind: bind all methods of a class instance to the instance.
+ * Generic accepts any object; we use a Record cast internally for indexing.
+ */
+function autoBind<T extends object>(instance: T): void {
   const proto = Object.getPrototypeOf(instance);
-  Object.getOwnPropertyNames(proto).forEach(key => {
-    if (key !== 'constructor' && typeof instance[key] === 'function') {
-      instance[key] = instance[key].bind(instance);
+  if (!proto) return;
+
+  Object.getOwnPropertyNames(proto).forEach((key) => {
+    if (key === "constructor") return;
+    const val = (instance as Record<string, unknown>)[key];
+    if (typeof val === "function") {
+      (instance as Record<string, unknown>)[key] = (
+        val as (...args: unknown[]) => unknown
+      ).bind(instance);
     }
   });
 }
@@ -200,6 +212,7 @@ class Media {
     borderRadius = 0,
     font
   }: MediaProps) {
+    autoBind(this);
     this.geometry = geometry;
     this.gl = gl;
     this.image = image;
@@ -356,38 +369,39 @@ class Media {
     }
   }
 
-onResize({ screen, viewport }: { screen?: ScreenSize; viewport?: Viewport } = {}) {
-  if (screen) this.screen = screen;
-  if (viewport) {
-    this.viewport = viewport;
-    if (this.plane.program.uniforms.uViewportSizes) {
-      this.plane.program.uniforms.uViewportSizes.value = [this.viewport.width, this.viewport.height];
+  onResize({ screen, viewport }: { screen?: ScreenSize; viewport?: Viewport } = {}) {
+    if (screen) this.screen = screen;
+    if (viewport) {
+      this.viewport = viewport;
+      // Type-safe check for uViewportSizes uniform
+      const uniforms = this.plane.program.uniforms as Record<string, { value: unknown }>;
+      if (uniforms.uViewportSizes) {
+        uniforms.uViewportSizes.value = [this.viewport.width, this.viewport.height];
+      }
     }
+
+    // Default scaling (desktop)
+    let baseScale = this.screen.height / 1500;
+    let widthFactor = 700;
+    let heightFactor = 900;
+
+    // 📱 Adjust for small screens
+    if (this.screen.width < 768) {
+      baseScale = this.screen.height / 2000;
+      widthFactor = 500;
+      heightFactor = 600;
+    }
+
+    this.scale = baseScale;
+    this.plane.scale.y = (this.viewport.height * (heightFactor * this.scale)) / this.screen.height;
+    this.plane.scale.x = (this.viewport.width * (widthFactor * this.scale)) / this.screen.width;
+
+    this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
+    this.padding = 2;
+    this.width = this.plane.scale.x + this.padding;
+    this.widthTotal = this.width * this.length;
+    this.x = this.width * this.index;
   }
-
-  // Default scaling (desktop)
-  let baseScale = this.screen.height / 1500;
-  let widthFactor = 700;
-  let heightFactor = 900;
-
-  // 📱 Adjust for small screens
-  if (this.screen.width < 768) { // Tailwind "md" breakpoint and below
-    baseScale = this.screen.height / 2000; 
-    widthFactor = 700; 
-    heightFactor = 900;
-  }
-
-  this.scale = baseScale;
-  this.plane.scale.y = (this.viewport.height * (heightFactor * this.scale)) / this.screen.height;
-  this.plane.scale.x = (this.viewport.width * (widthFactor * this.scale)) / this.screen.width;
-
-  this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
-  this.padding = 2;
-  this.width = this.plane.scale.x + this.padding;
-  this.widthTotal = this.width * this.length;
-  this.x = this.width * this.index;
-}
-
 }
 
 interface AppConfig {
@@ -400,17 +414,24 @@ interface AppConfig {
   scrollEase?: number;
 }
 
+interface CustomWheelEvent extends WheelEvent {
+  wheelDelta?: number;
+  // no need to redefine `detail`, it's already in WheelEvent as number
+}
+
+interface ScrollState {
+  ease: number;
+  current: number;
+  target: number;
+  last: number;
+  position?: number;
+}
+
 class App {
   container: HTMLElement;
   scrollSpeed: number;
-  scroll: {
-    ease: number;
-    current: number;
-    target: number;
-    last: number;
-    position?: number;
-  };
-  onCheckDebounce: (...args: any[]) => void;
+  scroll: ScrollState;
+  onCheckDebounce: (...args: unknown[]) => void;
   renderer!: Renderer;
   gl!: GL;
   camera!: Camera;
@@ -505,7 +526,7 @@ class App {
       {
         image: `https://static.vecteezy.com/system/resources/previews/031/399/026/non_2x/business-conference-networking-online-black-and-white-2d-illustration-concept-virtual-meeting-colleagues-around-world-isolated-cartoon-outline-characters-collab-metaphor-monochrome-art-vector.jpg`,
         text: 'Unlimited Networking'
-      },
+      }
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
@@ -548,9 +569,9 @@ class App {
   }
 
   onWheel(e: Event) {
-    const wheelEvent = e as WheelEvent;
-    const delta = wheelEvent.deltaY || (wheelEvent as any).wheelDelta || (wheelEvent as any).detail;
-    this.scroll.target += (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.2;
+    const wheelEvent = e as CustomWheelEvent;
+    const delta = wheelEvent.deltaY || wheelEvent.wheelDelta || wheelEvent.detail;
+    if (delta) this.scroll.target += (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.2;
     this.onCheckDebounce();
   }
 
@@ -580,22 +601,21 @@ class App {
     }
   }
 
-update() {
-  // Add auto-scrolling
-  this.scroll.target += 0.09; // adjust this for speed
+  update() {
+    // Add auto-scrolling
+    this.scroll.target += 0.09; // adjust this for speed
 
-  this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
-  const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
+    this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
+    const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
 
-  if (this.medias) {
-    this.medias.forEach(media => media.update(this.scroll, direction));
+    if (this.medias) {
+      this.medias.forEach(media => media.update(this.scroll, direction));
+    }
+
+    this.renderer.render({ scene: this.scene, camera: this.camera });
+    this.scroll.last = this.scroll.current;
+    this.raf = window.requestAnimationFrame(this.update.bind(this));
   }
-
-  this.renderer.render({ scene: this.scene, camera: this.camera });
-  this.scroll.last = this.scroll.current;
-  this.raf = window.requestAnimationFrame(this.update.bind(this));
-}
-
 
   addEventListeners() {
     this.boundOnResize = this.onResize.bind(this);
@@ -660,7 +680,7 @@ export default function CircularGallery({
       borderRadius,
       font,
       scrollSpeed,
-      scrollEase  
+      scrollEase
     });
     return () => {
       app.destroy();

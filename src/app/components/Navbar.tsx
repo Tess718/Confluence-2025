@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 
 export default function Navbar() {
@@ -9,8 +10,8 @@ export default function Navbar() {
   return (
     <nav className="bg-white max-w-[1200px] mx-auto lg:rounded-full rounded-md  shadow ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        {/* Logo */}
-        <a href="#home" className="flex items-center space-x-3 rtl:space-x-reverse">
+        {/* Logo */} 
+        <Link href="#home" className="flex items-center space-x-3 rtl:space-x-reverse">
           <Image
             src="/logo.jpg"
             width={32}
@@ -20,7 +21,7 @@ export default function Navbar() {
           <span className="self-center text-2xl font-semibold whitespace-nowrap">
             Confluence
           </span>
-        </a>
+        </Link>
 
         {/* Buttons */}
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -71,41 +72,41 @@ export default function Navbar() {
             md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white"
           >
             <li>
-              <a
+              <Link
                 href="#home"
                 className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent 
                 md:text-blue-700 md:p-0"
                 aria-current="page"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="#about"
                 className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent 
                 md:hover:text-blue-700 md:p-0"
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="#format"
                 className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent 
                 md:hover:text-blue-700 md:p-0"
               >
                 Event format
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="#contact"
                 className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent 
                 md:hover:text-blue-700 md:p-0"
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
