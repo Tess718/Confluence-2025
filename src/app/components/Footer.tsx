@@ -24,13 +24,13 @@ const Footer = () => {
             </div>
 
             <div className="flex gap-5">
-                 <div className='p-2 cursor-pointer bg-white rounded-lg w-fit'>
-                  <Twitter />
+                 <div className='p-2 cursor-pointer bg-white rounded-lg w-10 text-center'>
+                  <i className="bi bi-twitter-x"></i>
                 </div>
-                 <div className='p-2 cursor-pointer bg-white rounded-lg w-fit'>
+                 <div className='p-2 cursor-pointer bg-white rounded-lg w-10'>
                   <Instagram />
                 </div>
-                 <div className='p-2 cursor-pointer bg-white rounded-lg w-fit'>
+                 <div className='p-2 cursor-pointer bg-white rounded-lg w-10'>
                   <Linkedin />
                 </div>
             </div>

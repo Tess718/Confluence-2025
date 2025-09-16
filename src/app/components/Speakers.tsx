@@ -10,7 +10,7 @@ const Speakers = () => {
         <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold '>The Voices and the <br /> Visionaries</p>
 
         <div className='pt-10'>
-            <div className="bg-white p-10 rounded-lg shadow text-center">
+            <div className="bg-white p-10 rounded-lg shadow text-center" data-aos="fade-up">
                 <div className="p-5 rounded-lg mx-auto w-fit bg-blue-100 mb-5">
                     <Users size={30}/>
                 </div>

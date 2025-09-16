@@ -11,7 +11,7 @@ const Connected = () => {
 
 
         <div className="flex gap-10 md:mt-12 my-7 flex-col lg:flex-row lg:items-center">
-          <div className="basis-1/2">
+          <div className="basis-1/2" data-aos="fade-right">
             <h2 className='text-4xl max-sm:text-2xl font-medium text-slate-700 max-sm:text-center'>About Blockchain Lautech</h2>
             <p className='text-lg text-slate-700 mt-5 max-sm:text-center'>Blockchain Lautech has been championing blockchain education since 2020. Through workshops, hackathons, and community building, we&apos;ve created a vibrant ecosystem that connects LAUTECH students to the global Web3 movement.
 
@@ -41,7 +41,7 @@ const Connected = () => {
           </div>
           <div className="basis-1/2">
             <div className="flex flex-col gap-5 text-slate-700">
-              <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full'>
+              <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full' data-aos="fade-bottom">
                 <div className='p-3 bg-blue-100 rounded-lg w-fit'>
                   <MailQuestionMark />
                 </div>
@@ -51,7 +51,7 @@ const Connected = () => {
                 </div>
               </div>
               <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full
-              '>
+              ' data-aos="fade-bottom" data-aos-delay="200">
                 <div className='p-3 bg-blue-100 rounded-lg w-fit'>
                    <MailQuestionMark />
                 </div>
@@ -60,7 +60,7 @@ const Connected = () => {
                   <p>sponsors@confluence2025.com</p>
                 </div>
               </div>
-              <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full'>
+              <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full' data-aos="fade-bottom" data-aos-delay="400">
                 <div className='p-3 bg-blue-100 rounded-lg w-fit'>
                   <MailQuestionMark />
                 </div>
@@ -70,7 +70,7 @@ const Connected = () => {
                 </div>
               </div>
               <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full
-              '>
+              ' data-aos="fade-bottom" data-aos-delay="600">
                 <div className='p-3 bg-blue-100 rounded-lg w-fit'>
                   <MailQuestionMark />
                 </div>

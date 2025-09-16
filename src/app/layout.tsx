@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Inter } from "next/font/google";
+import { Geist_Mono, Montserrat } from "next/font/google"; // ✅ use Montserrat
 import "./globals.css";
+import AOSWrapper from "./providers/AOSWrapper";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ["latin"],
+  variable: "--font-montserrat", // optional custom CSS variable
 });
 
 const geistMono = Geist_Mono({
@@ -16,19 +19,19 @@ export const metadata: Metadata = {
   description:
     "The flagship tech conference uniting students, developers, and industry leaders at the intersection of blockchain, Web3, and emerging technologies.",
   icons: {
-    icon: "/con-img (1).jpg", // your custom favicon (must be in public/)
+    icon: "/con-img (1).jpg",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${geistMono.variable} antialiased`}>
-        {children}
+      <body
+        className={`${montserrat.className} ${geistMono.variable} antialiased`}
+      >
+        <AOSWrapper>{children}</AOSWrapper>
       </body>
     </html>
   );

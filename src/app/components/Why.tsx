@@ -10,28 +10,28 @@ const Why = () => {
         <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold '>Amplifying Innovation <br /> Through Confluence</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-5 gap-15 pt-14">
-            <div className="px-5 py-14 text-center rounded-lg bg-white shadow relative flex flex-col items-center justify-center">
+            <div className="px-5 py-14 text-center rounded-lg bg-white shadow relative flex flex-col items-center justify-center" data-aos="fade-up">
                 <div className='flex justify-center w-fit mx-auto bg-blue-100 p-3 rounded-lg absolute -top-5 left-1/2 -translate-x-1/2'>
                     <Target />
                 </div>
                 <h2 className='text-lg font-semibold text-slate-700'>Proven Impact</h2>
                 <p className='text-slate-500 text-md'>2,500+ students trained since 2020</p>
             </div>
-            <div className="px-5 py-14 text-center rounded-lg bg-white shadow relative flex flex-col items-center justify-center">
+            <div className="px-5 py-14 text-center rounded-lg bg-white shadow relative flex flex-col items-center justify-center" data-aos="fade-up" data-aos-delay="200">
                 <div className='flex justify-center w-fit mx-auto bg-blue-100 p-3 rounded-lg absolute -top-5 left-1/2 -translate-x-1/2'>
                     <Globe />
                 </div>
                 <h2 className='text-lg font-semibold text-slate-700'>Global Connections</h2>
                 <p className='text-slate-500 text-md'>Partnerships with Solana, Sui, Celo ecosystems</p>
             </div>
-            <div className="px-5 py-14 text-center rounded-lg bg-white shadow flex flex-col items-center justify-center relative">
+            <div className="px-5 py-14 text-center rounded-lg bg-white shadow flex flex-col items-center justify-center relative" data-aos="fade-up" data-aos-delay="400">
                <div className='flex justify-center w-fit mx-auto bg-blue-100 p-3 rounded-lg absolute -top-5 left-1/2 -translate-x-1/2'>
                     <Rocket />
                </div>
                 <h2 className='text-lg font-semibold text-slate-700'>Innovation Hub</h2>
                 <p className='text-slate-500 text-md'>Showcasing the future from Ogbomoso to the world</p>
             </div>
-            <div className="px-5 py-14 text-center rounded-lg bg-white shadow flex flex-col items-center justify-center relative">
+            <div className="px-5 py-14 text-center rounded-lg bg-white shadow flex flex-col items-center justify-center relative" data-aos="fade-up" data-aos-delay="600">
              <div className='flex justify-center w-fit mx-auto bg-blue-100 p-3 rounded-lg absolute -top-5 left-1/2 -translate-x-1/2'>
                 <HeartHandshake />
                </div>

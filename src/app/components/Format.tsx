@@ -8,7 +8,7 @@ const Format = () => {
         <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold '>Two days of intensive learning, <br className='hidden lg:block' /> networking, and innovation designed <br className='hidden lg:block' /> for different audiences.</p>
 
         <div className="flex justify-between pt-10 flex-col lg:flex-row gap-5">
-            <div className="basis-1/2 bg-[#ecf0ff] shadow p-2.5 rounded-lg">
+            <div className="basis-1/2 bg-[#ecf0ff] shadow p-2.5 rounded-lg" data-aos="fade-right">
                 <div className="inner bg-[#ecf0ff] rounded-md p-4 h-full">
                     <div className="header py-5.5 border-b border-slate-300">
                         <h3 className='text-slate-700 font-semibold text-3xl'> Day 1: Developer Track</h3>
@@ -28,7 +28,7 @@ const Format = () => {
 
                 </div>
             </div>
-            <div className="basis-1/2 bg-[#fef4e2] shadow p-2.5 rounded-lg">
+            <div className="basis-1/2 bg-[#fef4e2] shadow p-2.5 rounded-lg" data-aos="fade-left">
             <div className="inner bg-[#fef4e2] rounded-md p-4 h-full">
                 <div className="header py-5.5 border-b border-slate-300">
                     <h3 className='text-slate-700 font-semibold text-3xl'>Day 2: Community Track</h3>

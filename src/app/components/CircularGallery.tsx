@@ -426,7 +426,7 @@ class App {
     this.planeGeometry = new Plane(this.gl, { heightSegments: 50, widthSegments: 100 });
   }
 
-  createMedias(items?: { image: string; text: string }[], bend = 1, textColor = '#fff', borderRadius = 0, font = 'bold 30px Figtree') {
+  createMedias(items?: { image: string; text: string }[], bend = 1, textColor = '#fff', borderRadius = 0, font = 'bold 30px monsterrat') {
     const defaultItems = [
       { image: 'https://static.vecteezy.com/system/resources/previews/031/394/161/non_2x/audience-listening-conference-cartoon-flat-illustration-seminar-attendees-group-of-business-people-diverse-2d-characters-isolated-on-white-background-lecture-participants-scene-color-image-vector.jpg', text: '500+ Expected Attendees' },
       { image: 'https://static.vecteezy.com/system/resources/previews/039/269/178/non_2x/idea-line-two-color-icon-vector.jpg', text: '2 Days of Innovation' },

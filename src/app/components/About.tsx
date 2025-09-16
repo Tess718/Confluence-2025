@@ -6,8 +6,9 @@ const About = () => {
     <section id='about' className='pt-[5%] px-20 max-sm:px-5'>
         <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'><h2 className=' text-gradient uppercase'>About Confluence</h2></div>
         <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold '>The Vision Behind <br /> Confluence</p>
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 lg:pt-16 mt-8">
-          <div>
+
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 lg:pt-10 pt-5">
+          <div data-aos="fade-right">
 
             <p className='text-slate-700'>
               Confluence is the flagship tech conference of Blockchain Lautech, designed to unite students,
@@ -37,7 +38,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div data-aos="fade-left">
             <Image src='/con-img (2).jpg'
              width={400} 
              height={400}

@@ -27,22 +27,22 @@ const Home = () => {
       <div>
         <Navbar />
         <div className='flex flex-col justify-center items-center gap-7 pt-15 max-sm:px-5 relative z-10'>
-          <div className="bg-[#fef4e2] px-7 py-2 rounded-full shadow">
+          <div className="bg-[#fef4e2] px-7 py-2 rounded-full shadow" data-aos="fade-up">
             <h2 className='text-gradient font-medium lg:text-2xl uppercase text-center'>
               Welcome to Confluence 2025
             </h2>
           </div>
 
-          <h1 className='font-semibold lg:text-7xl text-3xl text-gradient text-center tracking-wide'>
+          <h1 className='font-semibold lg:text-7xl text-3xl text-gradient text-center tracking-wide' data-aos="fade-up" data-aos-delay="300">
             Where Innovation Meets <br className='hidden lg:block' /> Opportunity
           </h1>
 
-          <p className='font-normal lg:text-lg text-center text-slate-700'>
+          <p className='font-normal lg:text-lg text-center text-slate-700' data-aos="fade-up" data-aos-delay="600">
             The flagship tech conference uniting students, developers, and industry leaders at <br className='hidden lg:block' /> 
             the intersection of blockchain, Web3, and emerging technologies.
           </p>
 
-          <div className='flex lg:gap-10 gap-5'>
+          <div className='flex lg:gap-10 gap-5' data-aos="fade-up" data-aos-delay="600">
             <div className="flex items-center gap-2">
               <MapPin className='fill-pink-700 stroke-white' size={20} /> 
               <p className='uppercase font-normal md:text-base text-xs text-slate-700'>Ogbomoso, Nigeria</p>
@@ -53,7 +53,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className='flex gap-5'>
+          <div className='flex gap-5' data-aos="fade-up" data-aos-delay="900">
             <button className='bg-blue-700 text-white px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal cursor-pointer'>
               Register for Community Track
             </button>
