@@ -35,7 +35,7 @@ const Footer = () => {
                 </div>
             </div>
             
-            <div className="flex text-white gap-5">
+            <div className="flex text-white gap-5 text-center lg:text-start">
                 <p className='cursor-pointer text-xs'>Privacy Policy</p>
                 <p className='cursor-pointer text-xs'>Terms of Service</p>
                 <p className='cursor-pointer text-xs'>Code of Conduct</p>
@@ -44,7 +44,7 @@ const Footer = () => {
 
         <hr className='text-white my-7' />
 
-        <div className="flex justify-between text-white max-sm:flex-col gap-5 text-sm max-sm:items-center">
+        <div className="flex justify-between text-white max-sm:flex-col gap-5 text-sm max-sm:items-center text-center lg:text-start">
             <p>© 2025 Blockchain Lautech. All rights reserved.</p>
             <p>Powered by innovation. Driven by community.</p>
         </div>
