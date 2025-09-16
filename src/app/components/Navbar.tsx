@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white max-w-[1200px] mx-auto lg:rounded-full rounded-md  shadow ">
+    <nav className="bg-white max-w-[1200px] mx-auto rounded-full shadow ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Logo */} 
         <Link href="#home" className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -18,7 +18,7 @@ export default function Navbar() {
             height={32}
             alt="Confluence Logo"
             className="h-10 w-10 rounded-full"/>
-          <span className="self-center text-2xl font-semibold whitespace-nowrap">
+          <span className="self-center text-lg md:text-2xl font-semibold whitespace-nowrap">
             Confluence
           </span>
         </Link>
