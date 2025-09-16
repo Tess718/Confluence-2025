@@ -32,18 +32,18 @@ const Connected = () => {
               </div>
             </div> */}
 
-            <div className='bg-white shadow rounded-lg p-5 border-l-3 border-blue-700 mt-5 font-medium text-slate-700'>
+            <div className='bg-white shadow rounded-lg p-5 border-l-3 border-conblue mt-5 font-medium text-slate-700'>
               <h3> Our Mission: To democratize blockchain education and foster innovation from Nigeria to the world.</h3>
             </div>
 
 
-            <button className='bg-blue-700 px-7 py-3 rounded-lg md:text-sm text-xs cursor-pointer font-normal text-white mt-5 flex items-center justify-center gap-2 w-full'>Learn More About Us <ExternalLink /></button>  
+            <button className='bg-conblue text-white px-7 py-3 rounded-lg md:text-sm text-xs cursor-pointer font-normal text-black mt-5 flex items-center justify-center gap-2 w-full'>Learn More About Us <ExternalLink /></button>  
           </div>
           <div className="basis-1/2">
-            <div className="flex flex-col gap-5 text-slate-700">
+            <div className="flex flex-col gap-5">
               <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full' data-aos="fade-bottom">
-                <div className='p-3 bg-blue-100 rounded-lg w-fit'>
-                  <MailQuestionMark />
+                <div className='p-3 bg-conblue rounded-lg w-fit'>
+                  <MailQuestionMark stroke='#fff'/>
                 </div>
                 <div>
                   <h3 className='text-lg'>General Inquiries</h3>
@@ -52,8 +52,8 @@ const Connected = () => {
               </div>
               <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full
               ' data-aos="fade-bottom" data-aos-delay="200">
-                <div className='p-3 bg-blue-100 rounded-lg w-fit'>
-                   <MailQuestionMark />
+                <div className='p-3 bg-conblue rounded-lg w-fit'>
+                   <MailQuestionMark stroke='#fff' />
                 </div>
                 <div>
                   <h3 className='text-lg'>Sponsorship</h3>
@@ -61,8 +61,8 @@ const Connected = () => {
                 </div>
               </div>
               <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full' data-aos="fade-bottom" data-aos-delay="400">
-                <div className='p-3 bg-blue-100 rounded-lg w-fit'>
-                  <MailQuestionMark />
+                <div className='p-3 bg-conblue rounded-lg w-fit'>
+                  <MailQuestionMark stroke='#fff' />
                 </div>
                 <div>
                   <h3 className='text-lg'>Media & Press</h3>
@@ -71,8 +71,8 @@ const Connected = () => {
               </div>
               <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full
               ' data-aos="fade-bottom" data-aos-delay="600">
-                <div className='p-3 bg-blue-100 rounded-lg w-fit'>
-                  <MailQuestionMark />
+                <div className='p-3 bg-conblue rounded-lg w-fit'>
+                  <MailQuestionMark stroke='#fff' />
                 </div>
                 <div>
                   <h3 className='text-lg'>Technical Support</h3>

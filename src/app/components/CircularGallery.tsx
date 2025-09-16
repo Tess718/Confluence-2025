@@ -1,7 +1,32 @@
-import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
-import { useEffect, useRef } from 'react';
+import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from "ogl";
+import { useEffect, useRef, useState } from "react";
 
-type GL = Renderer['gl'];
+/* ----------------------------- useOnScreen hook ---------------------------- */
+function useOnScreen(ref: React.RefObject<HTMLElement | null>, rootMargin = "0px") {
+  const [isIntersecting, setIntersecting] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIntersecting(entry.isIntersecting),
+      { rootMargin }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.unobserve(element);
+      observer.disconnect();
+    };
+  }, [rootMargin]); // Removed ref from dependencies
+
+  return isIntersecting;
+}
+
+/* -------------------------------- utilities -------------------------------- */
+type GL = Renderer["gl"];
 
 function debounce<T extends (...args: unknown[]) => void>(func: T, wait: number) {
   let timeout: number;
@@ -17,9 +42,9 @@ function lerp(p1: number, p2: number, t: number): number {
 
 function autoBind(instance: object): void {
   const proto = Object.getPrototypeOf(instance);
-  Object.getOwnPropertyNames(proto).forEach(key => {
+  Object.getOwnPropertyNames(proto).forEach((key) => {
     const value = (instance as Record<string, unknown>)[key];
-    if (key !== 'constructor' && typeof value === 'function') {
+    if (key !== "constructor" && typeof value === "function") {
       (instance as Record<string, unknown>)[key] = value.bind(instance);
     }
   });
@@ -33,12 +58,12 @@ function getFontSize(font: string): number {
 function createTextTexture(
   gl: GL,
   text: string,
-  font: string = 'bold 30px monospace',
-  color: string = 'black'
+  font: string = "bold 30px monospace",
+  color: string = "black"
 ): { texture: Texture; width: number; height: number } {
-  const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d');
-  if (!context) throw new Error('Could not get 2d context');
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+  if (!context) throw new Error("Could not get 2d context");
 
   context.font = font;
   const metrics = context.measureText(text);
@@ -51,8 +76,8 @@ function createTextTexture(
 
   context.font = font;
   context.fillStyle = color;
-  context.textBaseline = 'middle';
-  context.textAlign = 'center';
+  context.textBaseline = "middle";
+  context.textAlign = "center";
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.fillText(text, canvas.width / 2, canvas.height / 2);
 
@@ -61,6 +86,7 @@ function createTextTexture(
   return { texture, width: canvas.width, height: canvas.height };
 }
 
+/* --------------------------------- Title ---------------------------------- */
 interface TitleProps {
   gl: GL;
   plane: Mesh;
@@ -79,7 +105,14 @@ class Title {
   font: string;
   mesh!: Mesh;
 
-  constructor({ gl, plane, renderer, text, textColor = '#545050', font = '30px sans-serif' }: TitleProps) {
+  constructor({
+    gl,
+    plane,
+    renderer,
+    text,
+    textColor = "#545050",
+    font = "30px sans-serif",
+  }: TitleProps) {
     autoBind(this);
     this.gl = gl;
     this.plane = plane;
@@ -91,7 +124,12 @@ class Title {
   }
 
   createMesh() {
-    const { texture, width, height } = createTextTexture(this.gl, this.text, this.font, this.textColor);
+    const { texture, width, height } = createTextTexture(
+      this.gl,
+      this.text,
+      this.font,
+      this.textColor
+    );
     const geometry = new Plane(this.gl);
     const program = new Program(this.gl, {
       vertex: `
@@ -116,18 +154,20 @@ class Title {
         }
       `,
       uniforms: { tMap: { value: texture } },
-      transparent: true
+      transparent: true,
     });
     this.mesh = new Mesh(this.gl, { geometry, program });
     const aspect = width / height;
     const textHeightScaled = this.plane.scale.y * 0.15;
     const textWidthScaled = textHeightScaled * aspect;
     this.mesh.scale.set(textWidthScaled, textHeightScaled, 1);
-    this.mesh.position.y = -this.plane.scale.y * 0.5 - textHeightScaled * 0.5 - 0.05;
+    this.mesh.position.y =
+      -this.plane.scale.y * 0.5 - textHeightScaled * 0.5 - 0.05;
     this.mesh.setParent(this.plane);
   }
 }
 
+/* ---------------------------------- Media --------------------------------- */
 interface ScreenSize {
   width: number;
   height: number;
@@ -261,13 +301,13 @@ class Media {
         uImageSizes: { value: [0, 0] },
         uSpeed: { value: 0 },
         uTime: { value: 100 * Math.random() },
-        uBorderRadius: { value: this.borderRadius }
+        uBorderRadius: { value: this.borderRadius },
       },
-      transparent: true
+      transparent: true,
     });
 
     const img = new Image();
-    img.crossOrigin = 'anonymous';
+    img.crossOrigin = "anonymous";
     img.src = this.image;
     img.onload = () => {
       texture.image = img;
@@ -287,11 +327,16 @@ class Media {
       renderer: this.renderer,
       text: this.text,
       textColor: this.textColor,
-      font: this.font
+      font: this.font,
     });
   }
 
-  update(scroll: { current: number; last: number }, direction: 'right' | 'left') {
+  // Add method to update bend value
+  updateBend(newBend: number) {
+    this.bend = newBend;
+  }
+
+  update(scroll: { current: number; last: number }, direction: "right" | "left") {
     this.plane.position.x = this.x - scroll.current - this.extra;
 
     const x = this.plane.position.x;
@@ -324,11 +369,11 @@ class Media {
     this.isBefore = this.plane.position.x + planeOffset < -viewportOffset;
     this.isAfter = this.plane.position.x - planeOffset > viewportOffset;
 
-    if (direction === 'right' && this.isBefore) {
+    if (direction === "right" && this.isBefore) {
       this.extra -= this.widthTotal;
       this.isBefore = this.isAfter = false;
     }
-    if (direction === 'left' && this.isAfter) {
+    if (direction === "left" && this.isAfter) {
       this.extra += this.widthTotal;
       this.isBefore = this.isAfter = false;
     }
@@ -348,6 +393,7 @@ class Media {
   }
 }
 
+/* ----------------------------------- App ---------------------------------- */
 interface AppConfig {
   items?: { image: string; text: string }[];
   bend?: number;
@@ -362,7 +408,6 @@ interface AppConfig {
 class App {
   container: HTMLElement;
   scrollSpeed: number;
-  private autoRotate = 0.002;
   autoScrollSpeed: number;
   scroll: { ease: number; current: number; target: number; last: number; position?: number };
   onCheckDebounce: () => void;
@@ -376,34 +421,11 @@ class App {
   screen!: { width: number; height: number };
   viewport!: { width: number; height: number };
   raf = 0;
-
-private animate = () => {
-  // Move forward at a constant speed
-  this.scroll.target += this.autoScrollSpeed;
-
-  // Smooth update
-  this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
-
-  // Wrap around when reaching the end (infinite loop)
-  if (this.medias && this.medias.length > 0) {
-    const totalWidth = this.medias[0].width * this.medias.length * 0.5; 
-    // use half because we duplicated medias in `createMedias`
-    if (this.scroll.current > totalWidth) {
-      this.scroll.current = 0;
-      this.scroll.target = 0;
-    }
-  }
-
-  const direction = this.scroll.current > this.scroll.last ? "right" : "left";
-  this.medias?.forEach(media => media.update(this.scroll, direction));
-
-  this.renderer.render({ scene: this.scene, camera: this.camera });
-
-  this.scroll.last = this.scroll.current;
-  this.raf = window.requestAnimationFrame(this.animate);
-};
-
-
+  private running = false;
+  private bend: number;
+  private textColor: string;
+  private borderRadius: number;
+  private font: string;
 
   boundOnResize!: () => void;
   boundOnWheel!: (e: Event) => void;
@@ -415,12 +437,25 @@ private animate = () => {
   start = 0;
 
   constructor(container: HTMLElement, config: AppConfig) {
-    const { items, bend = 1, textColor = '#fff', borderRadius = 0, font = 'bold 30px Figtree', scrollSpeed = 2, scrollEase = 0.05, autoScrollSpeed = 0.02 } = config;
+    const {
+      items,
+      bend = 3,
+      textColor = "#fff",
+      borderRadius = 0,
+      font = "bold 30px Figtree",
+      scrollSpeed = 2,
+      scrollEase = 0.05,
+      autoScrollSpeed = 0.02,
+    } = config;
 
-    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.remove("no-js");
     this.container = container;
     this.scrollSpeed = scrollSpeed;
     this.autoScrollSpeed = autoScrollSpeed;
+    this.bend = bend;
+    this.textColor = textColor;
+    this.borderRadius = borderRadius;
+    this.font = font;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck.bind(this), 200);
 
@@ -429,9 +464,38 @@ private animate = () => {
     this.createScene();
     this.onResize();
     this.createGeometry();
-    this.createMedias(items, bend, textColor, borderRadius, font);
-     this.animate();
+    this.createMedias(items);
     this.addEventListeners();
+
+    // start the loop by default
+    this.setVisibility(true);
+  }
+
+  // Add method to update bend value
+  updateBend(newBend: number) {
+    if (this.bend !== newBend) {
+      this.bend = newBend;
+      // Update all media objects with new bend value
+      this.medias?.forEach((media) => media.updateBend(newBend));
+    }
+  }
+
+  setVisibility(isVisible: boolean) {
+    // start or stop RAF loop without re-creating the GL objects
+    if (isVisible) {
+      if (!this.running) {
+        this.running = true;
+        this.raf = requestAnimationFrame(this.update.bind(this));
+      }
+    } else {
+      if (this.running) {
+        this.running = false;
+        if (this.raf) {
+          cancelAnimationFrame(this.raf);
+          this.raf = 0;
+        }
+      }
+    }
   }
 
   createRenderer() {
@@ -455,26 +519,41 @@ private animate = () => {
     this.planeGeometry = new Plane(this.gl, { heightSegments: 50, widthSegments: 100 });
   }
 
-  createMedias(items?: { image: string; text: string }[], bend = 1, textColor = '#fff', borderRadius = 0, font = 'bold 30px monsterrat') {
+  createMedias(items?: { image: string; text: string }[]) {
     const defaultItems = [
-      { image: 'https://static.vecteezy.com/system/resources/previews/031/394/161/non_2x/audience-listening-conference-cartoon-flat-illustration-seminar-attendees-group-of-business-people-diverse-2d-characters-isolated-on-white-background-lecture-participants-scene-color-image-vector.jpg', text: '500+ Expected Attendees' },
-      { image: 'https://static.vecteezy.com/system/resources/previews/039/269/178/non_2x/idea-line-two-color-icon-vector.jpg', text: '2 Days of Innovation' },
-      { image: 'https://static.vecteezy.com/system/resources/previews/031/399/026/non_2x/business-conference-networking-online-black-and-white-2d-illustration-concept-virtual-meeting-colleagues-around-world-isolated-cartoon-outline-characters-collab-metaphor-monochrome-art-vector.jpg', text: 'Unlimited Networking' }
+      { image: "https://static.vecteezy.com/system/resources/previews/031/394/161/non_2x/audience-listening-conference-cartoon-flat-illustration-seminar-attendees-group-of-business-people-diverse-2d-characters-isolated-on-white-background-lecture-participants-scene-color-image-vector.jpg", text: "500+ Expected Attendees" },
+      { image: "https://static.vecteezy.com/system/resources/previews/039/269/178/non_2x/idea-line-two-color-icon-vector.jpg", text: "2 Days of Innovation" },
+      { image: "https://static.vecteezy.com/system/resources/previews/031/399/026/non_2x/business-conference-networking-online-black-and-white-2d-illustration-concept-virtual-meeting-colleagues-around-world-isolated-cartoon-outline-characters-collab-metaphor-monochrome-art-vector.jpg", text: "Unlimited Networking" },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
-    this.medias = this.mediasImages.map((data, index) => new Media({ geometry: this.planeGeometry, gl: this.gl, image: data.image, index, length: this.mediasImages.length, renderer: this.renderer, scene: this.scene, screen: this.screen, text: data.text, viewport: this.viewport, bend, textColor, borderRadius, font }));
+    this.medias = this.mediasImages.map((data, index) => new Media({
+      geometry: this.planeGeometry,
+      gl: this.gl,
+      image: data.image,
+      index,
+      length: this.mediasImages.length,
+      renderer: this.renderer,
+      scene: this.scene,
+      screen: this.screen!,
+      text: data.text,
+      viewport: this.viewport!,
+      bend: this.bend,
+      textColor: this.textColor,
+      borderRadius: this.borderRadius,
+      font: this.font
+    }));
   }
 
   onTouchDown(e: MouseEvent | TouchEvent) {
     this.isDown = true;
     this.scroll.position = this.scroll.current;
-    this.start = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    this.start = "touches" in e ? (e as TouchEvent).touches[0].clientX : (e as MouseEvent).clientX;
   }
 
   onTouchMove(e: MouseEvent | TouchEvent) {
     if (!this.isDown) return;
-    const x = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    const x = "touches" in e ? (e as TouchEvent).touches[0].clientX : (e as MouseEvent).clientX;
     const distance = (this.start - x) * (this.scrollSpeed * 0.025);
     this.scroll.target = (this.scroll.position ?? 0) + distance;
   }
@@ -507,26 +586,61 @@ private animate = () => {
     const height = 2 * Math.tan(fov / 2) * this.camera.position.z;
     const width = height * this.camera.aspect;
     this.viewport = { width, height };
-    this.medias?.forEach(media => media.onResize({ screen: this.screen, viewport: this.viewport }));
+    this.medias?.forEach((media) => media.onResize({ screen: this.screen, viewport: this.viewport }));
   }
 
+  update() {
+    // If the app isn't running, exit — RAF will be controlled by setVisibility
+    if (!this.running) return;
+
+    this.scroll.target += this.autoScrollSpeed;
+    this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
+    const direction = this.scroll.current > this.scroll.last ? "right" : "left";
+    this.medias?.forEach((media) => media.update(this.scroll, direction));
+    this.renderer.render({ scene: this.scene, camera: this.camera });
+    this.scroll.last = this.scroll.current;
+    this.raf = requestAnimationFrame(this.update.bind(this));
+  }
 
   addEventListeners() {
-  this.boundOnResize = this.onResize.bind(this);
-  window.addEventListener('resize', this.boundOnResize);
-}
+    this.boundOnResize = this.onResize.bind(this);
+    this.boundOnWheel = this.onWheel.bind(this);
+    this.boundOnTouchDown = this.onTouchDown.bind(this);
+    this.boundOnTouchMove = this.onTouchMove.bind(this);
+    this.boundOnTouchUp = this.onTouchUp.bind(this);
+    window.addEventListener("resize", this.boundOnResize);
+    window.addEventListener("mousewheel", this.boundOnWheel);
+    window.addEventListener("wheel", this.boundOnWheel);
+    window.addEventListener("mousedown", this.boundOnTouchDown);
+    window.addEventListener("mousemove", this.boundOnTouchMove);
+    window.addEventListener("mouseup", this.boundOnTouchUp);
+    window.addEventListener("touchstart", this.boundOnTouchDown);
+    window.addEventListener("touchmove", this.boundOnTouchMove);
+    window.addEventListener("touchend", this.boundOnTouchUp);
+  }
 
   destroy() {
-  window.cancelAnimationFrame(this.raf);
-  window.removeEventListener('resize', this.boundOnResize);
-
-  if (this.renderer?.gl?.canvas.parentNode) {
-    this.renderer.gl.canvas.parentNode.removeChild(this.renderer.gl.canvas as HTMLCanvasElement);
+    this.running = false;
+    if (this.raf) {
+      cancelAnimationFrame(this.raf);
+      this.raf = 0;
+    }
+    window.removeEventListener("resize", this.boundOnResize);
+    window.removeEventListener("mousewheel", this.boundOnWheel);
+    window.removeEventListener("wheel", this.boundOnWheel);
+    window.removeEventListener("mousedown", this.boundOnTouchDown);
+    window.removeEventListener("mousemove", this.boundOnTouchMove);
+    window.removeEventListener("mouseup", this.boundOnTouchUp);
+    window.removeEventListener("touchstart", this.boundOnTouchDown);
+    window.removeEventListener("touchmove", this.boundOnTouchMove);
+    window.removeEventListener("touchend", this.boundOnTouchUp);
+    if (this.renderer?.gl?.canvas.parentNode) {
+      this.renderer.gl.canvas.parentNode.removeChild(this.renderer.gl.canvas as HTMLCanvasElement);
+    }
   }
 }
 
-}
-
+/* ---------------------------- CircularGallery ----------------------------- */
 interface CircularGalleryProps {
   items?: { image: string; text: string }[];
   bend?: number;
@@ -541,20 +655,56 @@ interface CircularGalleryProps {
 export default function CircularGallery({
   items,
   bend = 3,
-  textColor = '#ffffff',
+  textColor = "#ffffff",
   borderRadius = 0.05,
-  font = 'bold 30px Figtree',
+  font = "bold 30px Figtree",
   scrollSpeed = 2,
   scrollEase = 0.05,
-  autoScrollSpeed = 0.2
+  autoScrollSpeed = 0.2,
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const appRef = useRef<App | null>(null);
 
+  // load a bit before fully visible so it's ready by the time it scrolls into view
+  const isVisible = useOnScreen(containerRef, "-150px");
+
+  // create the app once
   useEffect(() => {
     if (!containerRef.current) return;
-    const app = new App(containerRef.current, { items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase, autoScrollSpeed });
-    return () => app.destroy();
-  }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase, autoScrollSpeed]);
+    // Create only once
+    if (!appRef.current) {
+      appRef.current = new App(containerRef.current, {
+        items,
+        bend,
+        textColor,
+        borderRadius,
+        font,
+        scrollSpeed,
+        scrollEase,
+        autoScrollSpeed,
+      });
+    }
+    return () => {
+      // destroy on unmount
+      appRef.current?.destroy();
+      appRef.current = null;
+    };
+    // intentionally empty deps beyond mount/unmount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  return <div className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef} />;
+  // Update bend value when it changes
+  useEffect(() => {
+    if (appRef.current) {
+      appRef.current.updateBend(bend);
+    }
+  }, [bend]);
+
+  // toggle running state depending on intersection
+  useEffect(() => {
+    if (!appRef.current) return;
+    appRef.current.setVisibility(isVisible);
+  }, [isVisible]);
+
+  return <div ref={containerRef} className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing" />;
 }

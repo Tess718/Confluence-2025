@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { Instagram, Linkedin, Twitter } from 'lucide-react'
+import { Instagram, Linkedin } from 'lucide-react'
 
 const Footer = () => {
   return (
@@ -15,7 +15,7 @@ const Footer = () => {
                         className='h-10 w-10 rounded-full'
                         alt='logo'
                     />
-                     <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
+                     <span className="self-center text-2xl font-semibold whitespace-nowrap text-white uppercase">
                         Confluence 2025
                     </span>
                 </div>

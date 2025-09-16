@@ -32,10 +32,12 @@ const Home = () => {
               Welcome to Confluence 2025
             </h2>
           </div>
-
-          <h1 className='font-semibold lg:text-7xl text-3xl text-gradient text-center tracking-wide' data-aos="fade-up" data-aos-delay="300">
-            Where Innovation Meets <br className='hidden lg:block' /> Opportunity
-          </h1>
+          <div>
+            <p className='uppercase text-center font-semibold text-2xl pb-3' data-aos="fade-up" data-aos-delay="300">Theme:</p>
+            <h1 className='font-semibold lg:text-5xl text-3xl text-gradient text-center tracking-wide uppercase' data-aos="fade-up" data-aos-delay="300">
+              Ogbomoso&apos;s digital transformation: BlockChain as a catalyst
+            </h1>
+          </div>
 
           <p className='font-normal lg:text-lg text-center text-slate-700' data-aos="fade-up" data-aos-delay="600">
             The flagship tech conference uniting students, developers, and industry leaders at <br className='hidden lg:block' /> 
@@ -54,11 +56,11 @@ const Home = () => {
           </div>
 
           <div className='flex gap-5' data-aos="fade-up" data-aos-delay="900">
-            <button className='bg-blue-700 text-white px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal cursor-pointer'>
+            <button className=' bg-[#286cfd] text-white px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal cursor-pointer'>
               Register for Community Track
             </button>
 
-            <button className='border-blue-700 border-2 text-blue-700 px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal cursor-pointer'>
+            <button className='border-[#286cfd] border-2 text-[#286cfd] px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal cursor-pointer'>
               Apply for Dev Track
             </button>
           </div>

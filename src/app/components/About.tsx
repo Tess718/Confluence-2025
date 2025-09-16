@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import { Users, ChartNoAxesCombined  } from 'lucide-react'
 
 const About = () => {
   return (
@@ -7,8 +7,8 @@ const About = () => {
         <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'><h2 className=' text-gradient uppercase'>About Confluence</h2></div>
         <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold '>The Vision Behind <br /> Confluence</p>
 
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 lg:pt-10 pt-5">
-          <div data-aos="fade-right">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:pt-10 pt-5">
+          <div data-aos="fade-right" className='basis-1/2'>
 
             <p className='text-slate-700'>
               Confluence is the flagship tech conference of Blockchain Lautech, designed to unite students,
@@ -27,24 +27,28 @@ const About = () => {
               collaboration, and showcase the future of technology from Ogbomoso to the world
             </p>
 
-            <div className="flex gap-5 mt-5 flex-col md:flex-row">
-              <div className='w-full md:w-70 py-10 text-center rounded-2xl bg-[#ecf0ff] shadow text-slate-700'>
-                <h2 className='text-3xl font-semibold'>2,500+</h2>
-                <p>Students Trained</p>
-              </div>
-              <div className='w-full md:w-70 py-10 text-center rounded-2xl bg-[#fef4e2] shadow text-slate-700'>
-                <h2 className='text-3xl font-semibold'> 5+</h2>   
-                <p>Years of Impact</p>
-              </div>
-            </div>
           </div>
-          <div data-aos="fade-left">
-            <Image src='/con-img (2).jpg'
+          <div data-aos="fade-left" className='basis-1/2'>
+            {/* <Image src='/con-img (2).jpg'
              width={400} 
              height={400}
              alt='About img'
              className='w-full h-full object-cover rounded-2xl'
-             />
+             /> */}
+
+             <div className="flex gap-5 mt-5 flex-col">
+               <div className='w-full py-10 text-center rounded-2xl bg-conblack shadow text-white'>
+                  <Users className='mx-auto' size={30} />
+                 <h2 className='text-3xl font-semibold py-3'>2,500+</h2>
+                 <p>Students Trained</p>
+               </div>
+               <div className='w-full py-10 text-center rounded-2xl bg-conblack shadow text-white'>
+                  <ChartNoAxesCombined className='mx-auto' size={30} />
+                 <h2 className='text-3xl font-semibold py-3'> 5+</h2>   
+                 <p>Years of Impact</p>
+               </div>
+             </div>
+
           </div>
         </div>
 

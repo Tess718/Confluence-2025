@@ -11,14 +11,14 @@ const Speakers = () => {
 
         <div className='pt-10'>
             <div className="bg-white p-10 rounded-lg shadow text-center" data-aos="fade-up">
-                <div className="p-5 rounded-lg mx-auto w-fit bg-blue-100 mb-5">
+                <div className="p-5 rounded-lg mx-auto w-fit text-white bg-conblue mb-5">
                     <Users size={30}/>
                 </div>
 
                 <h2 className='text-3xl font-semibold text-slate-700'>Coming Soon...</h2>
                 <p className='text-slate-500 py-5 text-lg'>We&apos;re announcing our incredible lineup of industry leaders, <br /> innovative startups, and ecosystem partners.</p>
 
-                <button className='px-10 py-3 rounded-lg md:text-sm text-xs pointer font-normal bg-blue-800 text-white transition cursor-pointer'>Contact Us</button>
+                <button className='px-10 py-3 rounded-lg md:text-sm text-xs pointer font-normal bg-conblue text-white transition cursor-pointer'>Contact Us</button>
             </div>
         </div>
     </div>

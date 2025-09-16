@@ -9,18 +9,15 @@ export default function Navbar() {
   return (
     <div className="bg-white max-w-[1200px] mx-auto rounded-full shadow ">
       <nav className="">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className="max-w-screen-xl flex flex-wrap items-center max-sm:items-start justify-between mx-auto p-4">
           {/* Logo */} 
           <a href="#home" className="flex items-center space-x-3 rtl:space-x-reverse">
             <Image
-              src="/logo.jpg"
-              width={32}
-              height={32}
+              src="/actual-logo.png"
+              width={180}
+              height={10}
               alt="Confluence Logo"
-              className="h-10 w-10 rounded-full"/>
-            <span className="self-center text-lg md:text-2xl font-semibold whitespace-nowrap">
-              Confluence
-            </span>
+              className="max-sm:w-35"/>
           </a>
 
           {/* Buttons */}
@@ -28,7 +25,7 @@ export default function Navbar() {
             <a href="#register">
               <button
                 type="button"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none 
+                className="text-white bg-[#286cfd] hover:bg-blue-800 focus:ring-4 focus:outline-none 
                 focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2 text-center "
               >
                 Register
@@ -39,7 +36,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               type="button"
               className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 
-              rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+              rounded-lg md:hidden max-sm:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
               aria-controls="navbar-sticky"
               aria-expanded={isOpen}
             >
@@ -105,7 +102,7 @@ export default function Navbar() {
                 <a
                   href="#about"
                   onClick={() => setIsOpen(false)}
-                  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100
+                  className="block py-2 px-3 text-gray-900 rounded-sm max-sm:hover:bg-gray-100
                   md:hover:text-blue-700 md:p-0"
                 >
                   About
@@ -115,7 +112,7 @@ export default function Navbar() {
                 <a
                   href="#format"
                   onClick={() => setIsOpen(false)}
-                  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100
+                  className="block py-2 px-3 text-gray-900 rounded-sm max-sm:hover:bg-gray-100
                   md:hover:text-blue-700 md:p-0"
                 >
                   Event format
@@ -125,7 +122,7 @@ export default function Navbar() {
                 <a
                   href="#contact"
                   onClick={() => setIsOpen(false)}
-                  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100
+                  className="block py-2 px-3 text-gray-900 rounded-sm max-sm:hover:bg-gray-100
                   md:hover:text-blue-700 md:p-0"
                 >
                   Contact
