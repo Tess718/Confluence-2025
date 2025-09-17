@@ -55,14 +55,14 @@ const CountdownTimer: React.FC = () => {
   ];
 
   return (
-    <div className="max-sm:-mt-15 relative z-30 flex items-center justify-center p-4">
+    <div className="max-sm:-mt-15 relative z-30 flex items-center justify-center p-4 px-20 max-sm:px-5">
       <div className="bg-conblue rounded-3xl p-8 shadow-2xl border border-white/20 max-w-4xl w-full">
 
         {/* Countdown Display */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {timeUnits.map((unit: TimeUnit, index: number) => (
             <div key={index} className="text-center">
-              <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-6 shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
                 <div className="text-4xl md:text-5xl font-bold text-white mb-2 font-mono">
                   {unit.value.toString().padStart(2, '0')}
                 </div>

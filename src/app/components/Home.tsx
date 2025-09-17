@@ -71,7 +71,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div style={{ height: '600px', position: 'relative' }} className='-mt-20 max-sm:-mt-20' data-aos="fade-up" data-aos-delay="1300">
+        <div style={{ height: '600px', position: 'relative' }} className='-mt-25 max-sm:-mt-20' data-aos="fade-up" data-aos-delay="1300">
           <CircularGallery 
             bend={bend} 
             textColor="#000" 

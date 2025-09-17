@@ -40,7 +40,7 @@ const Why = () => {
             </div>
         </div> */}
 
-        <div className="flex flex-col lg:flex-row lg:mt-20 mt-5 gap-10">
+        <div className="flex flex-col lg:flex-row lg:mt-10 mt-5 gap-10">
             <div className="basis-1/2" data-aos="fade-right">
             <p className='text-slate-700 text-md md:text-md leading-relaxed max-md:text-justify'>
                 Ogbomoso isn’t just a city - it’s a growing hub of energy, innovation, and youthful talent. As the second largest city in Oyo State, with a population running into the millions, Ogbomoso stands out as a vibrant urban center on the rise. The city is alive with curious minds eager to explore and embrace new technologies.
@@ -51,7 +51,7 @@ const Why = () => {
             </p>
             </div>
             <div className="basis-1/2" data-aos="fade-left">
-            <video src="VID-20250916-WA0048.mp4" autoPlay loop muted className="w-full h-full object-cover rounded-lg"></video>
+            <video src="VID-20250916-WA0048_1.mp4" autoPlay loop muted className="w-full h-full object-cover rounded-lg"></video>
             </div>
         </div> 
 

@@ -29,7 +29,7 @@ const Format = () => {
 
                 </div>
             </div>
-            <div className="basis-1/2 bg-conblack shadow p-2.5 rounded-lg" data-aos="fade-left">
+            <div className="basis-1/2 bg-conblack shadow rounded-lg p-2.5 " data-aos="fade-left">
             <div className="inner bg-conblack rounded-md p-4 h-full">
                 <div className="header py-5.5 border-b border-white">
                     <h3 className='text-white font-semibold text-3xl'>Day 2: Community Track</h3>

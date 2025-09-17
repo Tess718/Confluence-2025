@@ -39,7 +39,7 @@ const Details = () => {
           </div>
         </div>
         <div className="basis-1/2">
-          <div className="flex flex-col md:flex-row lg:flex-col gap-5">
+          <div className="flex flex-col lg:flex-col gap-5">
               <div className="bg-white px-5 py-10 rounded-lg text-center shadow h-55 max-sm:h-full" data-aos="fade-left" data-aos-delay="500">
                   <div className='p-3 bg-conblue text-white rounded-lg w-fit mx-auto'>
                     <CircleDollarSign />

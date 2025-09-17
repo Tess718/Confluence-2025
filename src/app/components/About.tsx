@@ -37,12 +37,12 @@ const About = () => {
              /> */}
 
              <div className="flex gap-5 mt-5 flex-col">
-               <div className='w-full py-10 text-center rounded-2xl bg-conblack shadow text-white'>
+               <div className='w-full py-10 text-center rounded-lg bg-conblack shadow text-white'>
                   <Users className='mx-auto' size={30} />
                  <h2 className='text-3xl font-semibold py-3'>2,500+</h2>
                  <p>Students Trained</p>
                </div>
-               <div className='w-full py-10 text-center rounded-2xl bg-conblack shadow text-white'>
+               <div className='w-full py-10 text-center rounded-lg bg-conblack shadow text-white'>
                   <ChartNoAxesCombined className='mx-auto' size={30} />
                  <h2 className='text-3xl font-semibold py-3'> 5+</h2>   
                  <p>Years of Impact</p>
