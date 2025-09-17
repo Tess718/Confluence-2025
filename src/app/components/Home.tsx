@@ -38,8 +38,8 @@ const Home = () => {
             <p className='text-center text-slate-700 pt-2 lg:text-2xl'>The Biggest Web 3 Extravaganza in Oyo state</p>
           </div>
           <div>
-            <p className='uppercase text-center font-semibold text-2xl pb-3' data-aos="fade-up" data-aos-delay="300">Theme:</p>
-            <h1 className='font-semibold lg:text-2xl text-3xl text-gradient text-center tracking-wide uppercase' data-aos="fade-up" data-aos-delay="300">
+            <p className='uppercase text-center font-semibold text-xl pb-3' data-aos="fade-up" data-aos-delay="300">Theme:</p>
+            <h1 className='font-semibold lg:text-5xl text-xl text-gradient text-center tracking-wide uppercase' data-aos="fade-up" data-aos-delay="300">
               Ogbomoso&apos;s digital transformation: BlockChain as a catalyst
             </h1>
           </div>

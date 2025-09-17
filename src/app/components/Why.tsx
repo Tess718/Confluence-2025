@@ -1,5 +1,6 @@
 import React from 'react'
 import { Target, Globe, Rocket, HeartHandshake } from 'lucide-react'
+// import VideoPlayer from './VideoPlayer'
 
 const Why = () => {
   return (
@@ -39,6 +40,21 @@ const Why = () => {
                 <p className='text-slate-600 text-md'>Uniting beginners to experts in one space</p>
             </div>
         </div>
+
+        {/* <div className="flex flex-col lg:flex-row mt-20">
+            <div className="basis-1/2">
+            <p>
+                Ogbomoso isn’t just a city - it’s a growing hub of energy, innovation, and youthful talent. As the second largest city in Oyo State, with a population running into the millions, Ogbomoso stands out as a vibrant urban center on the rise. The city is alive with curious minds eager to explore and embrace new technologies.
+
+                Yet, while Ogbomoso is rich in people, ideas, and culture, it has often been overlooked in conversations about digital transformation. That’s why this is the perfect place for Confluence. By bringing Blockchain and Web3 innovation here, we’re not only sparking conversations; we’re planting seeds of opportunity, empowering a new generation of builders, and showing that global technology can take root in local communities.
+
+                It is the right city, at the right time, for a digital shift.
+            </p>
+            </div>
+            <div className="basis-1/2">
+                <VideoPlayer />
+            </div>
+        </div> */}
 
     </div>
   )
