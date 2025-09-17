@@ -1,5 +1,5 @@
 import React from 'react'
-import { Medal, Code, Target, Network, Award, Presentation, Users, Rocket, MonitorPlay } from 'lucide-react'
+import { Medal, Code, Target, Network, Award, Presentation, Users, Rocket, MonitorPlay, Venus } from 'lucide-react'
 
 const Format = () => {
   return (
@@ -39,7 +39,7 @@ const Format = () => {
                     <ul className='font-medium text-white space-y-3.5'>
                         <li className='flex gap-2'><Presentation />Keynote Presentations</li>
                         <li className='flex gap-2'><Users />Expert Panel Discussions</li>
-                        <li className='flex gap-2'><Target />Women in Web3 Sessions</li>
+                        <li className='flex gap-2'><Venus />Women in Web3 Sessions</li>
                         <li className='flex gap-2'><Rocket />Startup Exhibitions</li>
                         <li className='flex gap-2'><Code />Interactive Workshops</li>
                         <li className='flex gap-2'><Network />Networking Opportunities</li>

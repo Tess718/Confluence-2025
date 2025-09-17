@@ -158,11 +158,11 @@ class Title {
     });
     this.mesh = new Mesh(this.gl, { geometry, program });
     const aspect = width / height;
-    const textHeightScaled = this.plane.scale.y * 0.15;
+    const textHeightScaled = this.plane.scale.y * 0.12; // Reduced from 0.15
     const textWidthScaled = textHeightScaled * aspect;
     this.mesh.scale.set(textWidthScaled, textHeightScaled, 1);
     this.mesh.position.y =
-      -this.plane.scale.y * 0.5 - textHeightScaled * 0.5 - 0.05;
+      -this.plane.scale.y * 0.5 - textHeightScaled * 0.5 - 0.04; // Slightly reduced offset
     this.mesh.setParent(this.plane);
   }
 }
@@ -383,10 +383,10 @@ class Media {
     if (screen) this.screen = screen;
     if (viewport) this.viewport = viewport;
     this.scale = this.screen.height / 1500;
-    this.plane.scale.y = (this.viewport.height * (900 * this.scale)) / this.screen.height;
-    this.plane.scale.x = (this.viewport.width * (700 * this.scale)) / this.screen.width;
+    this.plane.scale.y = (this.viewport.height * (700 * this.scale)) / this.screen.height; // Reduced from 900
+    this.plane.scale.x = (this.viewport.width * (550 * this.scale)) / this.screen.width; // Reduced from 700
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
-    this.padding = 2;
+    this.padding = 1.5; // Reduced from 2
     this.width = this.plane.scale.x + this.padding;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
@@ -442,7 +442,7 @@ class App {
       bend = 3,
       textColor = "#fff",
       borderRadius = 0,
-      font = "bold 30px Figtree",
+      font = "bold 24px Figtree", // Reduced from 30px
       scrollSpeed = 2,
       scrollEase = 0.05,
       autoScrollSpeed = 0.02,
@@ -524,6 +524,10 @@ class App {
       { image: "https://static.vecteezy.com/system/resources/previews/031/394/161/non_2x/audience-listening-conference-cartoon-flat-illustration-seminar-attendees-group-of-business-people-diverse-2d-characters-isolated-on-white-background-lecture-participants-scene-color-image-vector.jpg", text: "500+ Expected Attendees" },
       { image: "https://static.vecteezy.com/system/resources/previews/039/269/178/non_2x/idea-line-two-color-icon-vector.jpg", text: "2 Days of Innovation" },
       { image: "https://static.vecteezy.com/system/resources/previews/031/399/026/non_2x/business-conference-networking-online-black-and-white-2d-illustration-concept-virtual-meeting-colleagues-around-world-isolated-cartoon-outline-characters-collab-metaphor-monochrome-art-vector.jpg", text: "Unlimited Networking" },
+      { image: "https://static.vecteezy.com/system/resources/previews/025/687/892/non_2x/coffe-break-flat-style-isometric-illustration-design-free-vector.jpg", text: "Fireside Chat" },
+      { image: "https://static.vecteezy.com/system/resources/previews/004/943/964/non_2x/a-public-speaker-give-a-speech-behind-the-podium-free-vector.jpg", text: "Keynote Speeches" },
+      { image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP11lc18ZVOqH3S8f7m0ZEYbLBhpASNNFltA&s", text: "Panel Sessions" },
+      { image: "https://media.istockphoto.com/id/1210803911/vector/people-working-together-hackathon-vector-flat-illustration-programmers-work-with-data.jpg?s=612x612&w=0&k=20&c=yoTjL26kAyCebnpuA-DelwoSOf1EBmazkl8HKragWTw=", text: "Hackathons" },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
@@ -657,7 +661,7 @@ export default function CircularGallery({
   bend = 3,
   textColor = "#ffffff",
   borderRadius = 0.05,
-  font = "bold 30px Figtree",
+  font = "bold 24px Figtree", // Reduced from 30px
   scrollSpeed = 2,
   scrollEase = 0.05,
   autoScrollSpeed = 0.2,

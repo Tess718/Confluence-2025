@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { MapPin, Calendar } from 'lucide-react'
 import Navbar from './Navbar'
 import CircularGallery from './CircularGallery'
+import CountdownTimer from './CountdownTimer'
 
 const Home = () => {
   const [bend, setBend] = useState(3)
@@ -27,14 +28,18 @@ const Home = () => {
       <div>
         <Navbar />
         <div className='flex flex-col justify-center items-center gap-7 pt-15 max-sm:px-5 relative z-10'>
-          <div className="bg-[#fef4e2] px-7 py-2 rounded-full shadow" data-aos="fade-up">
+          <div data-aos="fade-up">
+          <div className="bg-[#fef4e2] px-8 py-3 rounded-full shadow">
             <h2 className='text-gradient font-medium lg:text-2xl uppercase text-center'>
               Welcome to Confluence 2025
+
             </h2>
+          </div>
+            <p className='text-center text-slate-700 pt-2 lg:text-2xl'>The Biggest Web 3 Extravaganza in Oyo state</p>
           </div>
           <div>
             <p className='uppercase text-center font-semibold text-2xl pb-3' data-aos="fade-up" data-aos-delay="300">Theme:</p>
-            <h1 className='font-semibold lg:text-5xl text-3xl text-gradient text-center tracking-wide uppercase' data-aos="fade-up" data-aos-delay="300">
+            <h1 className='font-semibold lg:text-2xl text-3xl text-gradient text-center tracking-wide uppercase' data-aos="fade-up" data-aos-delay="300">
               Ogbomoso&apos;s digital transformation: BlockChain as a catalyst
             </h1>
           </div>
@@ -66,7 +71,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div style={{ height: '600px', position: 'relative' }} className='-mt-10 max-sm:-mt-10'>
+        <div style={{ height: '600px', position: 'relative' }} className='-mt-20 max-sm:-mt-20'>
           <CircularGallery 
             bend={bend} 
             textColor="#000" 
@@ -75,6 +80,9 @@ const Home = () => {
             autoScrollSpeed={0.09}
           />
         </div>
+
+
+        <CountdownTimer />
       </div>
 
     </section>

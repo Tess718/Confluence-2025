@@ -44,7 +44,7 @@ const Register = () => {
                             <li className='flex gap-2'><CircleSmall fill='currentColor' />Prizes and awards</li>
                         </ul>
 
-                       <button className='bg-white text-black px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal mt-15 w-full lg:absolute -bottom-33 md:static'>Apply for Dev Track →</button>
+                       <button className='bg-white text-black px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal mt-15 w-full'>Apply for Dev Track →</button>
                     </div>
 
             </div>

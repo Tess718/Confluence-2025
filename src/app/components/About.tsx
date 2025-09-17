@@ -19,7 +19,7 @@ const About = () => {
               Since 2020, Blockchain Lautech has championed blockchain adoption on campus, driving education and
               innovation through hands-on workshops, hackathons, Bitcoin Pizza Day celebrations, developer
               bootcamps, and partnerships with global Web3 projects. To date, we have trained 2,500+ students,
-              onboarded developers into ecosystems such as Solana, Sui, and Celo, and nurtured a vibrant community
+              onboarded developers into ecosystems such as Crossfi, Sui, and Celo, and nurtured a vibrant community
               that connects LAUTECH to the global blockchain movement
             </p>
             <p className='text-slate-700'>
