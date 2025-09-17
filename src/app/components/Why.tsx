@@ -42,7 +42,7 @@ const Why = () => {
 
         <div className="flex flex-col lg:flex-row lg:mt-20 mt-5 gap-10">
             <div className="basis-1/2" data-aos="fade-right">
-            <p className='text-slate-700 text-md md:text-lg leading-relaxed max-md:text-justify'>
+            <p className='text-slate-700 text-md md:text-md leading-relaxed max-md:text-justify'>
                 Ogbomoso isn’t just a city - it’s a growing hub of energy, innovation, and youthful talent. As the second largest city in Oyo State, with a population running into the millions, Ogbomoso stands out as a vibrant urban center on the rise. The city is alive with curious minds eager to explore and embrace new technologies.
 
                 Yet, while Ogbomoso is rich in people, ideas, and culture, it has often been overlooked in conversations about digital transformation. That’s why this is the perfect place for Confluence. By bringing Blockchain and Web3 innovation here, we’re not only sparking conversations; we’re planting seeds of opportunity, empowering a new generation of builders, and showing that global technology can take root in local communities.
