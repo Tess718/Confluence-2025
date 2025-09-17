@@ -12,8 +12,8 @@ const Connected = () => {
 
         <div className="flex gap-10 md:mt-12 my-7 flex-col lg:flex-row lg:items-center">
           <div className="basis-1/2" data-aos="fade-right">
-            <h2 className='text-4xl max-sm:text-2xl font-medium text-slate-700 max-sm:text-center'>About Blockchain Lautech</h2>
-            <p className='text-lg text-slate-700 mt-5 max-sm:text-center'>Blockchain Lautech has been championing blockchain education since 2020. Through workshops, hackathons, and community building, we&apos;ve created a vibrant ecosystem that connects LAUTECH students to the global Web3 movement.
+            <h2 className='text-4xl max-sm:text-2xl font-medium text-slate-700 max-md:text-justify'>About Blockchain Lautech</h2>
+            <p className='text-lg text-slate-700 mt-5 max-md:text-justify'>Blockchain Lautech has been championing blockchain education since 2020. Through workshops, hackathons, and community building, we&apos;ve created a vibrant ecosystem that connects LAUTECH students to the global Web3 movement.
 
 
            </p>

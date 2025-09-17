@@ -55,7 +55,7 @@ const CountdownTimer: React.FC = () => {
   ];
 
   return (
-    <div className="max-sm:-mt-20 relative z-30 flex items-center justify-center p-4">
+    <div className="max-sm:-mt-15 relative z-30 flex items-center justify-center p-4">
       <div className="bg-conblue rounded-3xl p-8 shadow-2xl border border-white/20 max-w-4xl w-full">
 
         {/* Countdown Display */}

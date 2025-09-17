@@ -8,7 +8,7 @@ const About = () => {
         <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold '>The Vision Behind <br /> Confluence</p>
 
         <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:pt-10 pt-5">
-          <div data-aos="fade-right" className='basis-1/2'>
+          <div data-aos="fade-right" className='basis-1/2 max-md:text-justify'>
 
             <p className='text-slate-700'>
               Confluence is the flagship tech conference of Blockchain Lautech, designed to unite students,

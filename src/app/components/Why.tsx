@@ -1,6 +1,5 @@
 import React from 'react'
-import { Target, Globe, Rocket, HeartHandshake } from 'lucide-react'
-// import VideoPlayer from './VideoPlayer'
+// import { Target, Globe, Rocket, HeartHandshake } from 'lucide-react'
 
 const Why = () => {
   return (
@@ -10,7 +9,7 @@ const Why = () => {
         </div>
         <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold '>Amplifying Innovation <br /> Through Confluence</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-5 gap-15 pt-14">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-5 gap-15 pt-14">
             <div className="px-5 py-14 text-center rounded-lg bg-white shadow relative flex flex-col items-center justify-center" data-aos="fade-up">
                 <div className='flex justify-center w-fit mx-auto bg-conblue text-white p-3 rounded-lg absolute -top-5 left-1/2 -translate-x-1/2'>
                     <Target />
@@ -39,11 +38,11 @@ const Why = () => {
                 <h2 className='text-lg font-semibold text-slate-700'>Inclusive Community</h2>
                 <p className='text-slate-600 text-md'>Uniting beginners to experts in one space</p>
             </div>
-        </div>
+        </div> */}
 
-        {/* <div className="flex flex-col lg:flex-row mt-20">
-            <div className="basis-1/2">
-            <p>
+        <div className="flex flex-col lg:flex-row lg:mt-20 mt-5 gap-10">
+            <div className="basis-1/2" data-aos="fade-right">
+            <p className='text-slate-700 text-md md:text-lg leading-relaxed max-md:text-justify'>
                 Ogbomoso isn’t just a city - it’s a growing hub of energy, innovation, and youthful talent. As the second largest city in Oyo State, with a population running into the millions, Ogbomoso stands out as a vibrant urban center on the rise. The city is alive with curious minds eager to explore and embrace new technologies.
 
                 Yet, while Ogbomoso is rich in people, ideas, and culture, it has often been overlooked in conversations about digital transformation. That’s why this is the perfect place for Confluence. By bringing Blockchain and Web3 innovation here, we’re not only sparking conversations; we’re planting seeds of opportunity, empowering a new generation of builders, and showing that global technology can take root in local communities.
@@ -51,10 +50,10 @@ const Why = () => {
                 It is the right city, at the right time, for a digital shift.
             </p>
             </div>
-            <div className="basis-1/2">
-                <VideoPlayer />
+            <div className="basis-1/2" data-aos="fade-left">
+            <video src="VID-20250916-WA0048.mp4" autoPlay loop muted className="w-full h-full object-cover rounded-lg"></video>
             </div>
-        </div> */}
+        </div> 
 
     </div>
   )
