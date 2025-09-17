@@ -3,7 +3,7 @@ import { Users, ChartNoAxesCombined  } from 'lucide-react'
 
 const About = () => {
   return (
-    <section id='about' className='pt-[5%] px-20 max-sm:px-5'>
+    <section id='about' className='pt-[5%] px-20 max-sm:px-5 max-sm:pt-[18%]'>
         <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'><h2 className=' text-gradient uppercase'>About Confluence</h2></div>
         <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold '>The Vision Behind <br /> Confluence</p>
 
