@@ -12,8 +12,8 @@ const Connected = () => {
 
         <div className="flex gap-10 md:mt-12 my-7 flex-col lg:flex-row lg:items-center">
           <div className="basis-1/2" data-aos="fade-right">
-            <h2 className='text-4xl max-sm:text-2xl font-medium text-slate-700 max-md:text-justify'>About Blockchain Lautech</h2>
-            <p className='text-lg text-slate-700 mt-5 max-md:text-justify'>Blockchain Lautech has been championing blockchain education since 2020. Through workshops, hackathons, and community building, we&apos;ve created a vibrant ecosystem that connects LAUTECH students to the global Web3 movement.
+            <h2 className='text-4xl max-sm:text-2xl font-medium text-slate-700 text-justify'>About Blockchain Lautech</h2>
+            <p className='text-lg text-slate-700 mt-5 text-justify'>Blockchain Lautech has been championing blockchain education since 2020. Through workshops, hackathons, and community building, we&apos;ve created a vibrant ecosystem that connects LAUTECH students to the global Web3 movement.
 
 
            </p>
@@ -36,47 +36,29 @@ const Connected = () => {
               <h3> Our Mission: To democratize blockchain education and foster innovation from Nigeria to the world.</h3>
             </div>
 
-
-            <button className='bg-conblue text-white px-7 py-3 rounded-lg md:text-sm text-xs cursor-pointer font-normal text-black mt-5 flex items-center justify-center gap-2 w-full'>Learn More About Us <ExternalLink /></button>  
+            <a href="https://blockchainlautech.club" rel='noreferrer' target='_blank'>
+              <button className='bg-conblue text-white px-7 py-3 rounded-lg md:text-sm text-xs cursor-pointer font-normal text-black mt-5 flex items-center justify-center gap-2 w-full'>Learn More About Us <ExternalLink /></button>  
+            </a>
           </div>
           <div className="basis-1/2">
             <div className="flex flex-col gap-5">
-              <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full' data-aos="fade-bottom">
+              <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full basis-1/2 flex flex-col justify-center items-center text-center py-10' data-aos="fade-bottom">
                 <div className='p-3 bg-conblue rounded-lg w-fit'>
                   <MailQuestionMark stroke='#fff'/>
                 </div>
                 <div>
                   <h3 className='text-lg'>General Inquiries</h3>
-                  <p>info@confluence2025.com</p>
+                  <p>blockchainlautech@gmail.com</p>
                 </div>
               </div>
-              <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full
+              <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full basis-1/2 flex flex-col justify-center items-center text-center py-10
               ' data-aos="fade-bottom" data-aos-delay="200">
                 <div className='p-3 bg-conblue rounded-lg w-fit'>
-                   <MailQuestionMark stroke='#fff' />
+                   <i className="bi bi-whatsapp text-white p-0.5 px-1 text-lg"></i>
                 </div>
                 <div>
                   <h3 className='text-lg'>Sponsorship</h3>
-                  <p>sponsors@confluence2025.com</p>
-                </div>
-              </div>
-              <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full' data-aos="fade-bottom" data-aos-delay="400">
-                <div className='p-3 bg-conblue rounded-lg w-fit'>
-                  <MailQuestionMark stroke='#fff' />
-                </div>
-                <div>
-                  <h3 className='text-lg'>Media & Press</h3>
-                  <p>press@confluence2025.com</p>
-                </div>
-              </div>
-              <div className='p-3 bg-white rounded-lg shadow flex gap-5 w-full
-              ' data-aos="fade-bottom" data-aos-delay="600">
-                <div className='p-3 bg-conblue rounded-lg w-fit'>
-                  <MailQuestionMark stroke='#fff' />
-                </div>
-                <div>
-                  <h3 className='text-lg'>Technical Support</h3>
-                  <p>tech@confluence2025.com</p>
+                  <p>+234 916 270 6257</p>
                 </div>
               </div>
             </div>

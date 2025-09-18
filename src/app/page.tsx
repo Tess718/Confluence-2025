@@ -4,7 +4,6 @@ import About from './components/About'
 import Format from './components/Format'
 import Why from './components/Why'
 import Speakers from './components/Speakers'
-import Register from './components/Register'
 import Details from './components/Details'
 import Connected from './components/Connected'
 import Footer from './components/Footer'
@@ -17,7 +16,6 @@ const page = () => {
       <Format />
       <Why />
       <Speakers />
-      <Register />
       <Details />
       <Connected />
       <Footer />

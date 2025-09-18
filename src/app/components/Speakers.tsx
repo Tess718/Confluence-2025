@@ -1,4 +1,4 @@
-import { Users, Globe, Code, Zap, Palette, Database, Smartphone, Cloud } from 'lucide-react'
+import { Users, Globe, Code, Zap, Palette, Database, Smartphone, Cloud, Ticket } from 'lucide-react'
 import React from 'react'
 // import LogoLoop from './LogoLoop'
 
@@ -18,6 +18,11 @@ import React from 'react'
 //   { src: "/logos/company2.png", alt: "Company 2", href: "https://company2.com" },
 //   { src: "/logos/company3.png", alt: "Company 3", href: "https://company3.com" },
 // ]
+
+const phoneNumber = "+2349162706257"
+  const message = "Hi, I’m interested in being a speaker or sponsor at the confluence 2025 event."
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+
 
 const Speakers = () => {
   return (
@@ -40,10 +45,13 @@ const Speakers = () => {
             We&apos;re announcing our incredible lineup of industry leaders, <br /> 
             innovative startups, and ecosystem partners.
           </p>
-
-          <button className='px-10 py-3 rounded-lg md:text-sm text-xs pointer font-normal bg-conblue text-white transition cursor-pointer'>
-            Contact Us
-          </button>
+          <a  href={whatsappLink} 
+            target="_blank" 
+            rel="noopener noreferrer">
+            <button className='px-10 py-3 rounded-lg md:text-sm text-xs pointer font-normal bg-conblue text-white transition cursor-pointer'>
+              Contact Us
+            </button>
+            </a>
         </div>
       </div>
 
@@ -67,6 +75,9 @@ const Speakers = () => {
           />
         </div>
       </div> */}
+
+        
+
     </div>
   )
 }

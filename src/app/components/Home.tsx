@@ -27,7 +27,7 @@ const Home = () => {
     <section id='home'>
       <div>
         <Navbar />
-        <div className='flex flex-col justify-center items-center gap-7 pt-15 max-sm:px-5 relative z-10'>
+        <div className='flex flex-col justify-center items-center gap-7 md:pt-35 pt-28 max-sm:px-5 relative z-10'>
           <div data-aos="fade-up">
           <div className="bg-[#fef4e2] px-8 py-3 rounded-full shadow">
             <h2 className='text-gradient font-medium lg:text-2xl uppercase text-center'>
@@ -35,7 +35,7 @@ const Home = () => {
 
             </h2>
           </div>
-            <p className='text-center text-slate-700 pt-2 lg:text-2xl'>The Biggest Web 3 Extravaganza in Oyo state</p>
+            <p className='text-center text-slate-700 pt-2 lg:text-2xl'>The Biggest Web 3 Extravaganza in Oyo State</p>
           </div>
           <div>
             <p className='uppercase text-center font-semibold text-xl pb-3' data-aos="fade-up" data-aos-delay="300">Theme:</p>
@@ -56,7 +56,7 @@ const Home = () => {
             </div>
             <div className="flex items-center gap-2">
               <Calendar className='stroke-pink-700 fill-white' size={20} />
-              <p className='uppercase font-normal md:text-base text-xs text-slate-700'>November 7-8, 2025</p>
+              <p className='uppercase font-normal md:text-base text-xs text-slate-700'>November 7 - 8, 2025</p>
             </div>
           </div>
 

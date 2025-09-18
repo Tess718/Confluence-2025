@@ -8,7 +8,7 @@ const About = () => {
         <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold '>The Vision Behind <br /> Confluence</p>
 
         <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:pt-10 pt-5">
-          <div data-aos="fade-right" className='basis-1/2 max-md:text-justify'>
+          <div data-aos="fade-right" className='basis-1/2 text-justify'>
 
             <p className='text-slate-700'>
               Confluence is the flagship tech conference of Blockchain Lautech, designed to unite students,
@@ -36,13 +36,13 @@ const About = () => {
              className='w-full h-full object-cover rounded-2xl'
              /> */}
 
-             <div className="flex gap-5 mt-5 flex-col">
-               <div className='w-full py-10 text-center rounded-lg bg-conblack shadow text-white'>
+             <div className="flex lg:gap-5 gap-3 lg:mt-5 flex-row lg:flex-col">
+               <div className='w-full lg:py-10 py-6 text-center rounded-lg bg-conblack shadow text-white'>
                   <Users className='mx-auto' size={30} />
                  <h2 className='text-3xl font-semibold py-3'>2,500+</h2>
                  <p>Students Trained</p>
                </div>
-               <div className='w-full py-10 text-center rounded-lg bg-conblack shadow text-white'>
+               <div className='w-full lg:py-10 py-6 text-center rounded-lg bg-conblack shadow text-white'>
                   <ChartNoAxesCombined className='mx-auto' size={30} />
                  <h2 className='text-3xl font-semibold py-3'> 5+</h2>   
                  <p>Years of Impact</p>
