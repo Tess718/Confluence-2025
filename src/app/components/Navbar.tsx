@@ -22,7 +22,7 @@ export default function Navbar() {
 
           {/* Buttons */}
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <a href="#register">
+            <a href="#format">
               <button
                 type="button"
                 className="text-white bg-[#286cfd] hover:bg-blue-800 focus:ring-4 focus:outline-none 
