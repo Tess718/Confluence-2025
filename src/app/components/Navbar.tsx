@@ -26,7 +26,7 @@ export default function Navbar() {
               <button
                 type="button"
                 className="text-white bg-[#286cfd] hover:bg-blue-800 focus:ring-4 focus:outline-none 
-                focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2 text-center "
+                focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2 text-center cursor-pointer"
               >
                 Register
               </button>
@@ -110,12 +110,12 @@ export default function Navbar() {
               </li>
               <li>
                 <a
-                  href="#format"
+                  href="#details"
                   onClick={() => setIsOpen(false)}
                   className="block py-2 px-3 text-gray-900 rounded-sm max-sm:hover:bg-gray-100
                   md:hover:text-blue-700 md:p-0"
                 >
-                  Event format
+                  Venue
                 </a>
               </li>
               <li>

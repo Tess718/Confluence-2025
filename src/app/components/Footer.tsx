@@ -24,15 +24,23 @@ const Footer = () => {
             </div>
 
             <div className="flex gap-5">
-                 <div className='p-2 cursor-pointer bg-white rounded-lg w-10 text-center'>
-                  <i className="bi bi-twitter-x"></i>
-                </div>
-                 <div className='p-2 cursor-pointer bg-white rounded-lg w-10'>
-                  <Instagram />
-                </div>
-                 <div className='p-2 cursor-pointer bg-white rounded-lg w-10'>
-                  <Linkedin />
-                </div>
+                
+
+                <a href="https://x.com/ConfluenceEvent/">
+                    <div className='p-2 cursor-pointer bg-white rounded-lg w-10 h-10 text-xl flex justify-center items-center'>
+                    <i className="bi bi-twitter-x"></i>
+                    </div>
+                </a>
+                <a href="https://t.me/BlockchainLautech/24">
+                    <div className='p-2 cursor-pointer bg-white rounded-lg w-10 h-10 text-xl flex justify-center items-center'>
+                    <i className="bi bi-telegram"></i>
+                    </div>
+                </a>
+                <a href="https://chat.whatsapp.com/BvmEcyxnRsKAI64ht8LQls">
+                    <div className='p-2 cursor-pointer bg-white rounded-lg w-10 h-10 text-xl flex justify-center items-center'>
+                    <i className="bi bi-whatsapp"></i>
+                    </div>
+                </a>
             </div>
             
             <div className="flex text-white gap-5 text-center lg:text-start">

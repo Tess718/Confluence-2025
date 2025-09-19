@@ -51,19 +51,22 @@ const Home = () => {
 
           <div className='flex lg:gap-10 gap-5' data-aos="fade-up" data-aos-delay="600">
             <div className="flex items-center gap-2">
-              <MapPin className='fill-pink-700 stroke-white' size={20} /> 
+              <i className="bi bi-geo-alt-fill text-pink-700"></i> 
               <p className='uppercase font-normal md:text-base text-xs text-slate-700'>Ogbomoso, Nigeria</p>
             </div>
             <div className="flex items-center gap-2">
-              <Calendar className='stroke-pink-700 fill-white' size={20} />
+              <i className="bi bi-calendar-event text-pink-700"></i>
               <p className='uppercase font-normal md:text-base text-xs text-slate-700'>November 7 - 8, 2025</p>
             </div>
           </div>
 
           <div className='flex gap-5' data-aos="fade-up" data-aos-delay="900">
-            <button className=' bg-[#286cfd] text-white px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal cursor-pointer'>
+             <a href="https://luma.com/c0kc9817" rel='noreferrer' target='_blank'>  
+              <button className=' bg-[#286cfd] text-white px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal cursor-pointer'>
               Register for Community Track
             </button>
+             </a>
+            
 
             <button className='border-[#286cfd] border-2 text-[#286cfd] px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal cursor-pointer'>
               Apply for Dev Track
