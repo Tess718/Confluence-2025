@@ -50,7 +50,7 @@ const Home = () => {
           </p>
 
           <div className='flex lg:gap-10 gap-5' data-aos="fade-up" data-aos-delay="600">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1">
               <i className="bi bi-geo-alt-fill text-pink-700"></i> 
               <p className='uppercase font-normal md:text-base text-xs text-slate-700'>Ogbomoso, Nigeria</p>
             </div>

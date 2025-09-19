@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import { Instagram, Linkedin } from 'lucide-react'
 
 const Footer = () => {
   return (

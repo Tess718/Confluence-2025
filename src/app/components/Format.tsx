@@ -58,11 +58,11 @@ const Format = () => {
 
             
         </div>
-        <div className="bg-conblack rounded-xl mt-5 lg:p-10 p-3 mx-auto text-center text-white text-center" data-aos="fade-up">
+        <div className="bg-conblack rounded-xl mt-5 lg:p-10 p-5 mx-auto text-center text-white text-center" data-aos="fade-up">
             <div className='bg-white/12 rounded-lg lg:p-10 p-5 px-6 backdrop-blur-md shadow-lg border border-white/20 flex flex-col items-center justify-center gap-4'>
             <h2 className='text-3xl font-semibold'>Access Pass</h2>
             <i className="bi bi-ticket-perforated-fill text-4xl"></i>
-            <p className='text-xl font-semibold'>$0</p>
+            <p className='text-3xl font-semibold'>$0</p>
             <ul className='max-sm:text-sm max-sm:text-justify '>
                 <li> <i className="bi bi-check-circle-fill me-3"></i>Registration is free</li>
                 <li> <i className="bi bi-check-circle-fill me-3"></i>Upon approval, you will receive an access pass which validates your entry.</li>
