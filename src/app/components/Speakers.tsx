@@ -1,26 +1,9 @@
-import { Users, Globe, Code, Zap, Palette, Database, Smartphone, Cloud, Ticket } from 'lucide-react'
+import { Users } from 'lucide-react'
 import React from 'react'
-// import LogoLoop from './LogoLoop'
 
-// const techLogos = [
-//   { node: <Code size={32} />, title: "Development", href: "#" },
-//   { node: <Globe size={32} />, title: "Web Technologies", href: "#" },
-//   { node: <Zap size={32} />, title: "Performance", href: "#" },
-//   { node: <Palette size={32} />, title: "Design Systems", href: "#" },
-//   { node: <Database size={32} />, title: "Data Solutions", href: "#" },
-//   { node: <Smartphone size={32} />, title: "Mobile Apps", href: "#" },
-//   { node: <Cloud size={32} />, title: "Cloud Services", href: "#" },
-// ]
-
-// Alternative with image sources
-// const imageLogos = [
-//   { src: "/logos/company1.png", alt: "Company 1", href: "https://company1.com" },
-//   { src: "/logos/company2.png", alt: "Company 2", href: "https://company2.com" },
-//   { src: "/logos/company3.png", alt: "Company 3", href: "https://company3.com" },
-// ]
 
 const phoneNumber = "+2349162706257"
-  const message = "Hi, I’m interested in being a speaker or sponsor at the confluence 2025 event."
+  const message = "Hi, I’m interested in being a sponsor or partner at the confluence 2025 event."
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
 
 

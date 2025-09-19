@@ -38,7 +38,7 @@ const Details = () => {
               </div> */}
               <div>
                 <Image 
-                  src={"https://i.pinimg.com/originals/dd/be/94/ddbe94dc2b8f72244da556a12855434e.jpg"}
+                  src={"/assembly.jpg"}
                   width={500}
                   height={500}
                   className='w-full h-75 max-sm:h-55 rounded-lg object-cover object-center'

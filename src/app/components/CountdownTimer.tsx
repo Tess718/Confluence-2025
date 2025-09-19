@@ -65,12 +65,9 @@ const CountdownTimer: React.FC = () => {
         {eventStarted ? (
           // Event Started Message
           <div className="text-center">
-            <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="text-2xl md:text-5xl font-bold text-white mb-4 animate-pulse">
-                🎉 The event has started! 🎉
-              </div>
-              <div className="text-white/80 text-base md:text-xl font-medium">
-                Welcome to our amazing event!
+            <div className="bg-white/15 backdrop-blur-sm rounded-3xl lg:p-8 p-4 shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <div className="text-2xl text-center md:text-5xl font-bold text-white animate-pulse">
+              Confluence 2025 has started! 
               </div>
             </div>
           </div>
